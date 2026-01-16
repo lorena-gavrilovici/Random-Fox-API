@@ -1,3 +1,7 @@
+// Jurnal de inițializare aplicație
+console.log("Aplicația Fox Fun Facts a fost inițializată");
+
+// Elemente DOM utilizate în aplicație
 const foxImage = document.getElementById('fox-image');
 const foxFact = document.getElementById('fox-fact');
 const foxSpecies = document.getElementById('fox-species');
@@ -7,6 +11,7 @@ const specSize = document.getElementById('spec-size');
 const specHabitat = document.getElementById('spec-habitat');
 const specActivity = document.getElementById('spec-activity');
 
+// Curiozități despre vulpi afișate aleatoriu
 const facts = [
     "Vulpile au pupile verticale, la fel ca pisicile.",
     "O vulpe poate auzi un ceas ticăind de la 40 de metri distanță!",
@@ -27,11 +32,13 @@ const speciesData = [
 ];
 
 async function getFoxData() {
+    console.log("Se inițiază încărcarea datelor despre vulpe...");
     loadBtn.disabled = true;
     loader.style.display = 'block';
     
     try {
         const response = await fetch('https://randomfox.ca/floof/');
+        console.log("Răspuns primit de la API");
         const data = await response.json();
 
         const tempImg = new Image();
@@ -41,6 +48,7 @@ async function getFoxData() {
             foxImage.src = data.image;
             foxImage.style.display = 'block';
             loader.style.display = 'none';
+            console.log("Imaginea a fost încărcată cu succes");
             
             // Alegem un fapt aleatoriu
             foxFact.textContent = facts[Math.floor(Math.random() * facts.length)];
@@ -58,8 +66,12 @@ async function getFoxData() {
         foxFact.textContent = "Eroare la încărcare.";
         loader.style.display = 'none';
         loadBtn.disabled = false;
+        console.error("Eroare la încărcarea datelor:", error);
     }
 }
 
+// Eveniment pentru butonul de încărcare
 loadBtn.addEventListener('click', getFoxData);
+
+// Inițializare aplicație la încărcarea paginii
 window.addEventListener('DOMContentLoaded', getFoxData);
