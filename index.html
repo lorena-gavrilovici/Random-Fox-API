@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fox Fun Facts</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-card">
+        <h1 class="main-title">Fox Fun Facts</h1>
+
+        <div class="content-wrapper">
+            <div id="image-bg-container">
+                <div id="loader" class="loader"></div>
+                <img id="fox-image" src="" alt="Fox" style="display: none;">
+            </div>
+
+            <p id="fox-fact">Se încarcă o curiozitate...</p>
+
+            <div class="species-header">
+                Specia: <span id="fox-species">Se identifică...</span>
+            </div>
+
+            <div class="fox-specs">
+                <div class="spec-item">
+                    <span>📏 Talie:</span>
+                    <span id="spec-size">-</span>
+                </div>
+                <div class="spec-item">
+                    <span>🌍 Habitat:</span>
+                    <span id="spec-habitat">-</span>
+                </div>
+                <div class="spec-item">
+                    <span>🌙 Activitate:</span>
+                    <span id="spec-activity">-</span>
+                </div>
+            </div>
+
+            <button id="load-btn">Incarca o imagine noua</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
